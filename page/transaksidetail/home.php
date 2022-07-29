@@ -11,7 +11,7 @@ include('library/librupiah.php');
               DATA TRANSAKSI DETAIL
             </div>
             <div class="card-body">
-              <a href="index.php?page=transaksidetail&act=tambah&id=<?=$_GET['id']?>" class="btn btn-md btn-success" style="margin-bottom: 10px">TAMBAH DATA</a>
+              <a href="index.php?page=transaksidetail&act=tambah" class="btn btn-md btn-success" style="margin-bottom: 10px">TAMBAH DATA</a>
               <table class="table table-bordered" id="myTable">
                 <thead>
                   <tr>

@@ -15,7 +15,7 @@
                 <div class="form-group">
                   <label>Kode INV</label>
                   <?php
-                  $id_transaksi_detail = $row['id'];
+                  $id_transaksi_detail = ['id'];
                   $sql= "SELECT * FROM transaksi";
                   $query=mysqli_query($connection,$sql);
                   while($data_transaksi=mysqli_fetch_array($query)){
