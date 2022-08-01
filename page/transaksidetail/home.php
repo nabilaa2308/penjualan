@@ -1,7 +1,4 @@
-<?php 
-include('library/librupiah.php');
 
-?>
 
     <div class="container" style="margin-top: 80px">
       <div class="row">
@@ -11,7 +8,12 @@ include('library/librupiah.php');
               DATA TRANSAKSI DETAIL
             </div>
             <div class="card-body">
+<<<<<<< HEAD
               <a href="index.php?page=transaksidetail&act=tambah" class="btn btn-md btn-success" style="margin-bottom: 10px">TAMBAH DATA</a>
+=======
+              <a href="index.php?page=transaksidetail&act=tambah&id=<?=$_GET['id']?>" class="btn btn-md btn-success" style="margin-bottom: 10px">TAMBAH DATA</a>
+              <a href="index.php?page=transaksi" class="btn btn-md btn-success" style="margin-bottom: 10px">LIHAT TRANSAKSI</a>
+>>>>>>> 2de083a452e148b707d03c5122282d892a93879d
               <table class="table table-bordered" id="myTable">
                 <thead>
                   <tr>
@@ -44,8 +46,8 @@ include('library/librupiah.php');
                       <td><?php echo rupiah3($row['harga_jual']) ?></td>
                       <td><?php echo rupiah3($row['total_harga'])  ?></td>
                       <td class="text-center">
-                        <a href="index.php?page=transaksidetail&act=edit&id=<?php echo $row['id_transaksi_detail'] ?>" class="btn btn-sm btn-primary">EDIT</a>
-                        <a href="index.php?page=transaidetail&act=hapus&id=<?php echo $row['id_transaksi_detail'] ?>" class="btn btn-sm btn-danger">HAPUS</a>
+                        <a href="index.php?page=transaksidetail&act=edit&id=<?php echo $row['id_transaksi_detail']?>" class="btn btn-sm btn-primary">EDIT</a>
+                        <a href="index.php?page=transaksidetail&act=hapus&id=<?php echo $row['id_transaksi_detail']?>&id_transaksi=<?=$_GET['id']?>" class="btn btn-sm btn-danger">HAPUS</a>
                       </td>
                   </tr>
 

@@ -1,5 +1,4 @@
 <?php 
-  
   $id = $_GET['id'];
   
   $query = "SELECT * FROM transaksi_detail WHERE id_transaksi_detail = $id";
@@ -18,7 +17,7 @@
               EDIT TRANSAKSI DETAIL
             </div>
             <div class="card-body">
-              <form action="index.php?page=transaksidetail&act=update" method="POST">
+              <form action="index.php?page=transaksidetail&act=update&id=<?=$_GET['id']?>" method="POST">
 
               <div class="form-group">
                   <input type="hidden" name="id_transaksi_detail" value="<?php echo $row['id_transaksi_detail'] ?>" class="form-control">
@@ -27,15 +26,17 @@
                 <div class="form-group">
                   <label>Kode Inv</label>
                   <?php
-                  $id_transaksi_detail=$row['id_transaksi'];
-                  $sql= " SELECT kode_inv FROM transaksi where id_transaksi=$id";
-                  $query=mysqli_query($connection,$sql);
-                  while($data_transaksi=mysqli_fetch_array($query)){
-                    $id_transaksi = $data_transaksi['id_transaksi_detail'];
-                    $kode_inv = $data_transaksi['kode_inv'];
-                  }
-                  ?>
-                  <input type="text" name="id_transaksi" class="form-control" value="<?php echo $kode_inv?>" readonly>
+                  $id_transaksi = $row['id_transaksi'];
+                  $query1 = "SELECT * , DATE_FORMAT(waktu_transaksi,'%W, %d/%M/%Y %H:%i') AS waktu FROM transaksi inner join kasir on transaksi.id_kasir=kasir.id_kasir WHERE id_transaksi = $id_transaksi";
+                  $result = mysqli_query($connection, $query1);
+                  $row2 = mysqli_fetch_array($result);
+                  $a= " Kode Invoice : ";
+                  $b= " | Nama Kasir : ";
+                  $c=" | Waktu : ";
+              ?>
+              <div class="form-row">
+              <input type="text" name="id_transaksi" class="form-control" style="width:6%;margin-left:3px;" value="<?php echo $id_transaksi?>" readonly>
+              <input type="text" name="desk_transaksi" class="form-control" style="width:93%;" value="<?php echo $a.$row2['kode_inv'];?>" readonly>
                 </div>
                 
                 <div class="form-group">
@@ -74,7 +75,7 @@
          
                 <button type="submit" class="btn btn-success">UPDATE</button>
                 <button type="reset" class="btn btn-warning">RESET</button>
-                <a href="index.php?page=transaksidetail" class="btn btn-md btn-dark">BACK</a>
+                <a href="index.php?page=transaksidetail&id=<?=['id_transaksi_detail'] ?>" class="btn btn-md btn-dark">BACK</a>
 
               </form>
             </div>

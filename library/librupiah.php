@@ -13,6 +13,7 @@ function rupiah3($angka){
 	$hasil_rupiah = "Rp " . number_format($angka, 2, ".", ",");
 	return $hasil_rupiah;
 }
+
 /** 
 buat rupiah to string
 function rupiahtostring($angka){

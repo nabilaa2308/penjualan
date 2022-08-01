@@ -1,8 +1,5 @@
 <?php
 
-//include koneksi database
-include('database/koneksi.php');
-
 //get data dari form
 $id_transaksi_detail  = $_POST['id_transaksi_detail'];
 $id_transaksi         = $_POST['id_transaksi'];
@@ -21,7 +18,7 @@ $query = "INSERT INTO transaksi_detail (id_transaksi_detail, id_transaksi, id_ba
 if($connection->query($query)) {
 
     //redirect ke halaman datatransaksidetail.php 
-    header("location: index.php?page=transaksidetail");
+    header("location: index.php?page=transaksidetail&id=$id_transaksi");
 
 } else {
 

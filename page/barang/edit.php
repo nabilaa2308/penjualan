@@ -34,29 +34,29 @@
                 <div class="form-group">
                   <label>Nama Kategori</label>
                   <?php
-                  $id_barang=$row['id_barang'];
-                  $sql= "SELECT * FROM barang inner join kategori on kategori.id_kategori=barang.id_kategori where id_barang=$id";
+                  $sql= " SELECT * FROM kategori";
                   $query=mysqli_query($connection,$sql);
-                  while($databarang=mysqli_fetch_array($query)){
-                    $id_kategori = $databarang['id_kategori'];
-                    $nama_kategori = $databarang['nama_kategori'];
-                  }
+                  $a=". ";
                   ?>
-                  <input type="text" name="id_kategori" class="form-control" value="<?=$id_kategori?> . <?=$nama_kategori?>" readonly>
+                  <select name="id_kategori" class="form-control">
+                    <?php while($row2=mysqli_fetch_array($query)){?>
+                    <option value="<?php echo $row2['id_kategori']?>" <?php if($row2['id_kategori'] == $row['id_kategori']) { echo 'selected';}?>><?php echo $row2['id_kategori'].$a.$row2['nama_kategori'];?></option>
+                    <?php } ?>
+                  </select>
                 </div>
                 
                 <div class="form-group">
                   <label>Nama Supplier</label>
                   <?php
-                  $id_barang=$row['id_barang'];
-                  $sql= "SELECT * FROM barang inner join supplier on supplier.id_supplier=barang.id_supplier where id_barang=$id";
+                  $sql= " SELECT * FROM supplier";
                   $query=mysqli_query($connection,$sql);
-                  while($databarang=mysqli_fetch_array($query)){
-                    $id_supplier = $databarang['id_supplier'];
-                    $nama_supplier = $databarang['nama_supplier'];
-                  }
+                  $a=". ";
                   ?>
-                  <input type="text" name="id_supplier" class="form-control" value="<?=$id_supplier?> . <?=$nama_supplier?>" readonly>
+                  <select name="id_supplier" class="form-control">
+                    <?php while($row2=mysqli_fetch_array($query)){?>
+                    <option value="<?php echo $row2['id_supplier']?>" <?php if($row2['id_supplier'] == $row['id_supplier']) { echo 'selected';}?>><?php echo $row2['id_supplier'].$a.$row2['nama_supplier'];?></option>
+                    <?php } ?>
+                  </select>
                 </div>
                 
                 <div class="form-group">

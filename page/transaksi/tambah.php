@@ -1,7 +1,4 @@
-<?php
-include 'database/koneksi.php';
 
-?>
 
     <div class="container" style="margin-top: 80px">
       <div class="row">
@@ -64,7 +61,8 @@ include 'database/koneksi.php';
                 </div>
 
                 <div class="form-group">
-                  <input type="hidden" name="nama_pembeli" placeholder="Masukkan Nama Pembeli" class="form-control">
+                  <label>Nama Pembeli</label>
+                  <input type="text" name="nama_pembeli" placeholder="Masukkan Nama Pembeli" class="form-control">
                 </div>
 
                 <div class="form-group">
@@ -78,8 +76,7 @@ include 'database/koneksi.php';
                 </div>
 
                 <div class="form-group">
-                  <label>Total Bayar</label>
-                  <input type="text" id="total_bayar" name="total_bayar" placeholder="Masukkan Total Bayar" class="form-control">
+                  <input type="hidden" name="total_bayar" class="form-control">
                 </div>   
 
                 <button type="submit" class="btn btn-success">SIMPAN</button>
