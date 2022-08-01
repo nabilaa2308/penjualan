@@ -1,7 +1,4 @@
-<?php 
-  include 'database/koneksi.php';
 
-  ?>
     <div class="container" style="margin-top: 80px">
       <div class="row">
         <div class="col-md-8 offset-md-2">
@@ -10,21 +7,21 @@
               TAMBAH TRANSAKSI DETAIL
             </div>
             <div class="card-body">
-              <form action="index.php?page=transaksidetail&act=simpan" method="POST">
+              <form action="index.php?page=transaksidetail&act=simpan&id=<?=$_GET['id']?>" method="POST">
 
                 <div class="form-group">
                   <label>Kode INV</label>
                   <?php
-                  $id_transaksi_detail = $row['id'];
-                  $sql= "SELECT * FROM transaksi";
-                  $query=mysqli_query($connection,$sql);
-                  while($data_transaksi=mysqli_fetch_array($query)){
-                    $id_transaksi = $data_transaksi['id_transaksi'];
-                    $kode_inv = $data_transaksi['kode_inv'];
-                  }
-                  ?>
-                  <input type="text" name="id_transaksi" class="form-control" value="<?=$id_transaksi?> . <?=$kode_inv?>" readonly> 
+                   $id_transaksi= $_GET['id'];
+                   $sql= "SELECT kode_inv FROM transaksi WHERE id_transaksi=$id_transaksi";
+                   $query=mysqli_query($connection,$sql);
+                   while($data_transaksi=mysqli_fetch_array($query)){
+                   $kode_inv = $data_transaksi['kode_inv'];
+                   }
+                   ?>
+                   <input type="text" name="kode_inv" class="form-control" value="<?=$kode_inv?>" readonly>
                 </div>
+                
 
                 <div class="form-group">
                   <label>Barang</label>
@@ -33,7 +30,7 @@
                   $query=mysqli_query($connection,$sql);
                   $a=". ";
                   ?>
-                  <select name="id_barang" class="form-control">
+                  <select name="id_transaksi" class="form-control">
                     <?php while($row2=mysqli_fetch_array($query)){?>
                     <option value="<?php echo $row2['id_barang']?>"><?php echo $row2['id_barang'].$a.$row2['nama_barang'];?></option>
                     <?php } ?>
@@ -61,7 +58,7 @@
 
                 <button type="submit" class="btn btn-success">SIMPAN</button>
                 <button type="reset" class="btn btn-warning">RESET</button>
-                <a href="index.php?page=transaksidetail" class="btn btn-md btn-dark">BACK</a>
+                <a href="index.php?page=transaksidetail&id=<?php echo $row['id_transaksi'] ?>" class="btn btn-md btn-dark">BACK</a>
 
 
               </form>

@@ -1,8 +1,5 @@
 <?php
 
-//include koneksi database
-include('database/koneksi.php');
-
 //get data dari form
 $id_transaksi         = $_POST['id_transaksi'];
 $kode_inv             = $_POST['kode_inv'];
