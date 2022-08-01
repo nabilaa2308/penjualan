@@ -1,6 +1,6 @@
 <?php
 
-
+$id_transaksi=$_GET['id_transaksi'];
 //get data dari form
 $id_transaksi_detail = $_POST['id_transaksi_detail'];
 $id_transaksi        = $_POST['id_transaksi'];
@@ -22,6 +22,5 @@ if($connection->query($query)) {
     //pesan error gagal update data
     echo "Data Gagal Diupate!";
 }
-print_r($id_transaksi);die;
 
 ?>

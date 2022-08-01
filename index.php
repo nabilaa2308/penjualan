@@ -54,7 +54,6 @@ include 'library/romawi.php';
         case 'transaksidetail':
             include 'page/transaksidetail/index.php';
             break;
-
         default:
             include 'page/home/index.php';
             break;
