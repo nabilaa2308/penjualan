@@ -1,5 +1,5 @@
 <?php
-$id_transaksi = $_GET['id'];
+$id = $_GET['id'];
 
 //get data dari form
 $id_transaksi_detail  = $_POST['id_transaksi_detail'];
@@ -31,7 +31,7 @@ $query = "INSERT INTO transaksi_detail (id_transaksi_detail, id_transaksi, id_ba
 //kondisi pengecekan apakah data berhasil dimasukkan atau tidak
 if($connection->query($query)) {
     //redirect ke halaman index.php?page=transaksidetail&id=$id_transaksi 
-    header("location: index.php?page=transaksidetail&id=$id_transaksi");
+    header("location: index.php?page=transaksidetail&id=$id ");
 } else {
     //pesan error gagal insert data
     echo "Data Gagal Disimpan!";

@@ -40,7 +40,7 @@
                         }
                   ?>
                   <?php
-                  $result1 = "Rp " . number_format((float)$row['total_bayar'], 2, ".", ",");
+                  $result1 = "Rp " . number_format((float)$row['total_bayar'], 2, ",", ".");
                   ?>
                   <tr>
                       <td><?php echo $no++ ?></td>

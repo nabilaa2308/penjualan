@@ -13,11 +13,12 @@
                   <input type="hidden" name="id_transaksi_detail" class="form-control">
                 </div>
 
+
                 <div class="form-group">
                   <label>Kode INV</label>
                   <?php
                    $id_transaksi= $_GET['id'];
-                   $sql= "SELECT kode_inv FROM transaksi WHERE id_transaksi=$id_transaksi";
+                   $sql= "SELECT * FROM transaksi WHERE id_transaksi=$id_transaksi";
                    $query=mysqli_query($connection,$sql);
                    while($data_transaksi=mysqli_fetch_array($query)){
                    $kode_inv = $data_transaksi['kode_inv'];}?>
@@ -40,7 +41,7 @@
                 
                 <div class="form-group">
                   <label>Jumlah</label>
-                  <input type="text" name="jumlah" placeholder="Masukkan Jumlah" class="form-control">
+                  <input type="text" name="jumlah" placeholder="Masukkan Jumlah" class="form-control" required>
                 </div>
 
                 <div class="form-group">
