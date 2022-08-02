@@ -51,7 +51,7 @@
     });
 </script>
 <script>
-    function myFunction() {
+    function print() {
     window.print();
 }
 </script>

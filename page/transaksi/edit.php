@@ -72,7 +72,8 @@
                 </div>
 
                 <div class="form-group">
-                  <input type="hidden" name="nama_pembeli" value="<?php echo $row['nama_pembeli'] ?>" class="form-control">
+                  <label>Nama Pembeli</label>
+                  <input type="text" name="nama_pembeli" value="<?php echo $row['nama_pembeli'] ?>" class="form-control">
                 </div>
 
                 <div class="form-group">
@@ -86,7 +87,6 @@
                 </div>
                 
                 <div class="form-group">
-                  <label>Total Bayar</label>
                   <input type="hidden" id="total_bayar" name="total_bayar" value="<?php echo $row['total_bayar'] ?>" class="form-control">
                 </div>
 

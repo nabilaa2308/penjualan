@@ -63,6 +63,8 @@
         Call Center : <?php echo $row['nomor_telp']?> |
         Email : <?php echo $row['email']?>
       </div>
+      <a href="index.php"><button onClick="window.print();">Print</button>
+    </a>
     </div>
   </body>
 </html>

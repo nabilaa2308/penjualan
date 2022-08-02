@@ -38,6 +38,11 @@
                   <input type="date" name="tanggal_berdiri" placeholder="Masukkan Tanggal Berdiri Perusahaan" class="form-control">
                 </div>
 
+                <div class="form-group">
+                  <label>NPWP</label>
+                  <input type="text" name="npwp" placeholder="Masukkan NPWP Perusahaan" class="form-control">
+                </div>
+
                 <button type="submit" class="btn btn-success">SIMPAN</button>
                 <button type="reset" class="btn btn-warning">RESET</button>
                 <a href="index.php?page=perusahaan" class="btn btn-md btn-dark">BACK</a>

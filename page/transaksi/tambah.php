@@ -33,20 +33,6 @@
                 </div>
 
                 <div class="form-group">
-                  <label>Metode Pembayaran</label>
-                  <?php
-                  $sql= " SELECT * FROM metode_pembayaran";
-                  $query=mysqli_query($connection,$sql);
-                  $a=". ";
-                  ?>
-                  <select name="id_metode_pembayaran" class="form-control">
-                    <?php while($row=mysqli_fetch_array($query)){?>
-                    <option value="<?php echo $row['id_metode_pembayaran']?>"><?php echo $row['id_metode_pembayaran'].$a.$row['nama_metode'];?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-
-                <div class="form-group">
                   <label>Member</label>
                   <?php
                   $sql= " SELECT * FROM member";
@@ -55,12 +41,26 @@
                   ?>
                   <select name="id_member" class="form-control">
                     <?php while($row=mysqli_fetch_array($query)){?>
-                    <option value="<?php echo $row['id_member']?>"><?php echo $row['id_member'].$a.$row['nama_member'];?></option>
-                    <?php } ?>
-                  </select>
-                </div>
+                      <option value="<?php echo $row['id_member']?>"><?php echo $row['id_member'].$a.$row['nama_member'];?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
 
-                <div class="form-group">
+                  <div class="form-group">
+                    <label>Metode Pembayaran</label>
+                    <?php
+                    $sql= " SELECT * FROM metode_pembayaran";
+                    $query=mysqli_query($connection,$sql);
+                    $a=". ";
+                    ?>
+                    <select name="id_metode_pembayaran" class="form-control">
+                      <?php while($row=mysqli_fetch_array($query)){?>
+                      <option value="<?php echo $row['id_metode_pembayaran']?>"><?php echo $row['id_metode_pembayaran'].$a.$row['nama_metode'];?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
                   <label>Nama Pembeli</label>
                   <input type="text" name="nama_pembeli" placeholder="Masukkan Nama Pembeli" class="form-control">
                 </div>
@@ -81,7 +81,7 @@
 
                 <button type="submit" class="btn btn-success">SIMPAN</button>
                 <button type="reset" class="btn btn-warning">RESET</button>
-                <a href="datatransaksi.php" class="btn btn-md btn-dark">BACK</a>
+                <a href="index.php?page=transaksi" class="btn btn-md btn-dark">BACK</a>
 
               </form>
             </div>
