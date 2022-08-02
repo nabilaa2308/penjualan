@@ -54,6 +54,9 @@ include 'library/romawi.php';
         case 'transaksidetail':
             include 'page/transaksidetail/index.php';
             break;
+        case 'struk':
+            include 'page/struk/struk.php';
+            break;
         default:
             include 'page/home/index.php';
             break;

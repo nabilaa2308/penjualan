@@ -7,20 +7,23 @@
               TAMBAH TRANSAKSI DETAIL
             </div>
             <div class="card-body">
-              <form action="index.php?page=transaksidetail&act=simpan" method="POST">
+              <form action="index.php?page=transaksidetail&act=simpan&id=<?=$id_transaksi=$_GET['id'];?>" method="POST">
+
+              <div class="form-group">
+                  <input type="hidden" name="id_transaksi_detail" class="form-control">
+                </div>
 
                 <div class="form-group">
                   <label>Kode INV</label>
                   <?php
                    $id_transaksi= $_GET['id'];
                    $sql= "SELECT kode_inv FROM transaksi WHERE id_transaksi=$id_transaksi";
-                   $query1=mysqli_query($connection,$sql);
-                   while($data_transaksi=mysqli_fetch_array($query1)){
+                   $query=mysqli_query($connection,$sql);
+                   while($data_transaksi=mysqli_fetch_array($query)){
                    $kode_inv = $data_transaksi['kode_inv'];}?>
                    <input type="text" name="id_transaksi" class="form-control" value="<?=$id_transaksi?> . <?=$kode_inv?>" readonly>
                 </div>
                 
-
                 <div class="form-group">
                   <label>Barang</label>
                   <?php

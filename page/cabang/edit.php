@@ -1,7 +1,5 @@
 <?php 
-  
-  include('database/koneksi.php');
-  
+
   $id = $_GET['id'];
   
   $query = "SELECT * FROM cabang WHERE id_cabang =$id";

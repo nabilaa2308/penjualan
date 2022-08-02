@@ -1,6 +1,4 @@
 <?php
-    include 'database/koneksi.php';
-    include 'page/layout/js.php';
   
     $id = $_GET['id'];
   

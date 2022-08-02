@@ -1,7 +1,5 @@
 <?php 
   
-  include('database/koneksi.php');
-  
   $id = $_GET['id'];
   
   $query = "SELECT * FROM perusahaan WHERE id_perusahaan =$id";

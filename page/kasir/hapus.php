@@ -1,7 +1,5 @@
 <?php
 
-include('database/koneksi.php');
-
 //get id
 $id = $_GET['id'];
 

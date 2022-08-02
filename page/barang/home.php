@@ -1,8 +1,4 @@
-<?php
-include 'database/koneksi.php';
-include 'library/librupiah.php';
 
-?>
   <div class="container" style="margin-top: 80px">
       <div class="row">
         <div class="col-md-12">

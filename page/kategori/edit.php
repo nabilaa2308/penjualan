@@ -1,7 +1,5 @@
 <?php 
   
-  include('database/koneksi.php');
-  
   $id = $_GET['id'];
   
   $query = "SELECT * FROM kategori WHERE id_kategori = $id";

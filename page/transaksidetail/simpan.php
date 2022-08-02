@@ -1,4 +1,5 @@
 <?php
+$id_transaksi = $_GET['id'];
 
 //get data dari form
 $id_transaksi_detail  = $_POST['id_transaksi_detail'];
@@ -21,7 +22,7 @@ $ppn_akhir=$ppn_awal / $persen;
 $diskon_akhir=$diskon_awal / $persen;
 $harga_awal=$harga_jual * $jumlah;
 $hitung_ppn=$harga_awal * $ppn_akhir;
-$harga_ppn=$harga_awal - $hitung_ppn;
+$harga_ppn=$harga_awal + $hitung_ppn;
 $hitung_diskon=$harga_ppn * $diskon_akhir;
 $total_harga=$harga_ppn - $hitung_diskon; 
 //query insert data ke dalam database
@@ -29,12 +30,9 @@ $query = "INSERT INTO transaksi_detail (id_transaksi_detail, id_transaksi, id_ba
 
 //kondisi pengecekan apakah data berhasil dimasukkan atau tidak
 if($connection->query($query)) {
-
-    //redirect ke halaman datatransaksidetail.php 
+    //redirect ke halaman index.php?page=transaksidetail&id=$id_transaksi 
     header("location: index.php?page=transaksidetail&id=$id_transaksi");
-
 } else {
-
     //pesan error gagal insert data
     echo "Data Gagal Disimpan!";
 

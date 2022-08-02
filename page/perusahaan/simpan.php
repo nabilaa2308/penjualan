@@ -1,8 +1,5 @@
 <?php
 
-//include koneksi database
-include('database/koneksi.php');
-
 //get data dari form
 $id_perusahaan   = $_POST['id_perusahaan'];
 $nama_perusahaan = $_POST['nama_perusahaan'];

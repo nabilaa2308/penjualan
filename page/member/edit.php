@@ -1,7 +1,4 @@
 <?php 
-  
-  include('database/koneksi.php');
-  
   $id = $_GET['id'];
   
   $query = "SELECT * FROM member WHERE id_member =$id";

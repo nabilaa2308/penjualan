@@ -1,7 +1,4 @@
-<?php 
-  
-  include('database/koneksi.php');
-  
+<?php   
   $id = $_GET['id'];
   
   $query = "SELECT * FROM metode_pembayaran WHERE id_metode_pembayaran =$id";

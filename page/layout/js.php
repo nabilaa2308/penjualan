@@ -50,3 +50,8 @@
         $('#myTable').DataTable();
     });
 </script>
+<script>
+    function myFunction() {
+    window.print();
+}
+</script>

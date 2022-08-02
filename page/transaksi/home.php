@@ -57,7 +57,7 @@
                         <a href="index.php?page=transaksi&act=edit&id=<?php echo $row['id_transaksi'] ?>" class="btn btn-sm btn-primary">EDIT</a>
                         <a href="index.php?page=transaksi&act=hapus&id=<?php echo $row['id_transaksi'] ?>" class="btn btn-sm btn-danger">HAPUS</a>
                         <a href="index.php?page=transaksidetail&id=<?php echo $row['id_transaksi'] ?>" class="btn btn-sm btn-info">DETAIL</a>                        
-                        <a href="i" class="btn btn-sm btn-info">STRUK</a>
+                        <a href="index.php?page=struk&id=<?php echo $row['id_transaksi'] ?>" class="btn btn-sm btn-dark">STRUK</a>
                       </td>
                   </tr>
 

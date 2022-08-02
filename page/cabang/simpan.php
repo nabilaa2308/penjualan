@@ -1,7 +1,5 @@
 <?php
 
-//include koneksi database
-include('database/koneksi.php');
 
 //get data dari form
 $id_cabang     = $_POST['id_cabang'];
