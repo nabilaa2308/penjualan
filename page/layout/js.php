@@ -33,14 +33,21 @@
             separator = sisa ? '.' : '';
             rupiah += separator + ribuan.join('.');
         }
-
+        
         rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
         return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
     }
-
     
-
-
+</script>
+<script type="text/javascript">
+    document.getElementById('member').addEventListener('click', ()=>{
+        document.getElementById('showpembeli').style.display = 'none';
+        document.getElementById('showmember').style.display = 'block';
+    })
+    document.getElementById('nonmember').addEventListener('click', ()=>{
+        document.getElementById('showmember').style.display = 'none';
+        document.getElementById('showpembeli').style.display = 'block';
+    })
 </script>
 <script src="assets/js/jquery-3.4.1.slim.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
@@ -54,4 +61,8 @@
     function print() {
     window.print();
 }
+</script>
+<script>
+    var transaksi = transaksi();
+transaksi.SetVar("Selesai","Selesai");
 </script>

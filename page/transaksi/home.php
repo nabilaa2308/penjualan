@@ -1,7 +1,7 @@
 
     <div class="container" style="margin-top: 80px">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-15">
           <div class="card">
             <div class="card-header">
               DATA TRANSAKSI
@@ -21,6 +21,7 @@
                     <th scope="col">PPN%</th>
                     <th scope="col">DISKON%</th>
                     <th scope="col">TOTAL BAYAR</th>
+                    <th scope="col">STATUS</th>
                     <th scope="col">AKSI</th>
                   </tr>
                 </thead>
@@ -34,7 +35,17 @@
                         $id_transaksi=$row['id_transaksi'];
                         $query2 = mysqli_query($connection,"SELECT SUM(total_harga) AS total FROM transaksi_detail where id_transaksi='$id_transaksi'");
                         while($row2 = mysqli_fetch_array($query2)){
-                          $total_bayar=$row2['total'];
+                          $total_harga=$row2['total'];
+                          $ppn_awal=$row['ppn'];
+                          $diskon_awal=$row['diskon'];
+                          $persen              = 100;
+                          
+                          $ppn_akhir=$ppn_awal / $persen;
+                          $diskon_akhir=$diskon_awal / $persen;
+                          $hitung_diskon=$total_harga * $diskon_akhir;
+                          $harga_diskon=$total_harga - $hitung_diskon;
+                          $hitung_ppn=$harga_diskon * $ppn_akhir;
+                          $total_bayar=$harga_diskon + $hitung_ppn; 
                   $query3 = mysqli_query($connection,"UPDATE transaksi SET total_bayar = '$total_bayar' where id_transaksi = '$id_transaksi'");
                         
                         }
@@ -53,11 +64,12 @@
                       <td><?php echo $row['ppn'] ?></td>
                       <td><?php echo $row['diskon'] ?></td>                
                       <td><?php echo $result1 ?></td>
+                      <td><?php echo $row['status'] ?></td>                
                       <td class="text-center">
-                        <a href="index.php?page=transaksi&act=edit&id=<?php echo $row['id_transaksi'] ?>" class="btn btn-sm btn-primary">EDIT</a>
-                        <a href="index.php?page=transaksi&act=hapus&id=<?php echo $row['id_transaksi'] ?>" class="btn btn-sm btn-danger">HAPUS</a>
-                        <a href="index.php?page=transaksidetail&id=<?php echo $row['id_transaksi'] ?>" class="btn btn-sm btn-info">DETAIL</a>                        
-                        <a href="index.php?page=struk&id=<?php echo $row['id_transaksi'] ?>" class="btn btn-sm btn-dark">STRUK</a>
+                        <?php if ($row['status'] === "Belum Selesai"){ echo '<a href="index.php?page=transaksi&act=edit&id_transaksi='.$id_transaksi.'" class="btn btn-sm btn-primary">EDIT</a>
+                        <a href="index.php?page=transaksi&act=hapus&id_transaksi='.$id_transaksi.'" class="btn btn-sm btn-danger">HAPUS</a>
+                        <a href="index.php?page=transaksidetail&id_transaksi='.$id_transaksi.'" class="btn btn-sm btn-info">DETAIL</a>';}                     
+                        else if ($row['status'] === "Selesai"){ echo '<a href="index.php?page=struk&id_transaksi='.$id_transaksi.'" class="btn btn-sm btn-dark">STRUK</a>';}?>
                       </td>
                   </tr>
 

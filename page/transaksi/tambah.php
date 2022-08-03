@@ -17,53 +17,44 @@
                 <div class="form-group">
                   <input type="hidden" name="kode_inv" placeholder="Masukkan Kode Inv" class="form-control">
                 </div>
+        
+                <div class="form-group">
+                <button type="button" id="member" class="btn btn-success">Member</button>
+                <button type="button" id="nonmember" class="btn btn-success">Non Member</button>
+                </div>
                 
                 <div class="form-group">
-                  <label>Kasir</label>
-                  <?php
-                  $sql= " SELECT * FROM kasir";
-                  $query=mysqli_query($connection,$sql);
-                  $a=". ";
-                  ?>
-                  <select name="id_kasir" class="form-control">
-                    <?php while($row=mysqli_fetch_array($query)){?>
-                    <option value="<?php echo $row['id_kasir']?>"><?php echo $row['id_kasir'].$a.$row['nama_kasir'];?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label>Member</label>
                   <?php
                   $sql= " SELECT * FROM member";
                   $query=mysqli_query($connection,$sql);
                   $a=". ";
                   ?>
-                  <select name="id_member" class="form-control">
+                  <select name="id_member" id="showmember" style="display: none;" class="form-control">
+                  <option value="6">Pilih Member</option>
                     <?php while($row=mysqli_fetch_array($query)){?>
                       <option value="<?php echo $row['id_member']?>"><?php echo $row['id_member'].$a.$row['nama_member'];?></option>
                       <?php } ?>
                     </select>
                   </div>
+                  
+                  <div class="form-group">
+                    <input type="text" style="display: none;" id="showpembeli" name="nama_pembeli" value="-" placeholder="Masukkan Nama Pembeli" class="form-control">
+                </div>
 
                   <div class="form-group">
-                    <label>Metode Pembayaran</label>
+                    <label>Kasir</label>
                     <?php
-                    $sql= " SELECT * FROM metode_pembayaran";
+                    $sql= " SELECT * FROM kasir";
                     $query=mysqli_query($connection,$sql);
                     $a=". ";
                     ?>
-                    <select name="id_metode_pembayaran" class="form-control">
+                    <select name="id_kasir" class="form-control">
                       <?php while($row=mysqli_fetch_array($query)){?>
-                      <option value="<?php echo $row['id_metode_pembayaran']?>"><?php echo $row['id_metode_pembayaran'].$a.$row['nama_metode'];?></option>
+                      <option value="<?php echo $row['id_kasir']?>"><?php echo $row['id_kasir'].$a.$row['nama_kasir'];?></option>
                       <?php } ?>
                     </select>
                   </div>
                   
-                  <div class="form-group">
-                  <label>Nama Pembeli</label>
-                  <input type="text" name="nama_pembeli" placeholder="Masukkan Nama Pembeli" class="form-control">
-                </div>
 
                 <div class="form-group">
                   <label>PPN%</label>
@@ -79,6 +70,24 @@
                   <input type="hidden" name="total_bayar" class="form-control">
                 </div>   
 
+                <div class="form-group">
+                  <label>Metode Pembayaran</label>
+                  <?php
+                  $sql= " SELECT * FROM metode_pembayaran";
+                  $query=mysqli_query($connection,$sql);
+                  $a=". ";
+                  ?>
+                  <select name="id_metode_pembayaran" class="form-control">
+                    <?php while($row=mysqli_fetch_array($query)){?>
+                    <option value="<?php echo $row['id_metode_pembayaran']?>"><?php echo $row['id_metode_pembayaran'].$a.$row['nama_metode'];?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <input type="hidden" name="status" value="Belum Selesai" class="form-control">
+                </div>
+                
                 <button type="submit" class="btn btn-success">SIMPAN</button>
                 <button type="reset" class="btn btn-warning">RESET</button>
                 <a href="index.php?page=transaksi" class="btn btn-md btn-dark">BACK</a>
@@ -89,3 +98,4 @@
         </div>
       </div>
     </div>
+    

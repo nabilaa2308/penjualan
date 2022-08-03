@@ -29,12 +29,15 @@
                       INNER JOIN transaksi ON transaksi.id_transaksi=transaksi_detail.id_transaksi 
                       INNER JOIN barang ON barang.id_barang=transaksi_detail.id_barang 
                       WHERE transaksi.id_transaksi='$id_transaksi'");
-                      while($row = mysqli_fetch_array($query)){?>
+                      while($row = mysqli_fetch_array($query))
+                      
+                      
+                      {?>
 
                   <tr>
                       <td><?php echo $no++ ?></td>
                       <td><?php echo $row['kode_inv'] ?></td>
-                      <td><?php echo $row['nama_barang'] ?></td>
+                      <td><?php echo $row['nama_barang']?></td>
                       <td><?php echo $row['jumlah'] ?></td>
                       <td><?php echo rupiah3($row['harga_jual']) ?></td>
                       <td><?php echo rupiah3($row['total_harga'])  ?></td>

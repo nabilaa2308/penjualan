@@ -30,6 +30,30 @@
                 </div>
                 
                 <div class="form-group">
+                <button type="button" id="member" class="btn btn-success">Member</button>
+                <button type="button" id="nonmember" class="btn btn-success">Non Member</button>
+                </div>
+                
+                <div class="form-group">
+                  <?php
+                  $sql= " SELECT * FROM member";
+                  $query=mysqli_query($connection,$sql);
+                  $a=". ";
+                  ?>
+                  <select name="id_member" id="showmember" style="display: none;" class="form-control">
+                  <option value="6">Pilih Member</option>
+                    <?php while($row2=mysqli_fetch_array($query)){?>
+                    <option value="<?php echo $row2['id_member']?>" <?php if($row2['id_member'] == $row['id_member']) { echo 'selected';}?>><?php echo $row2['id_member'].$a.$row2['nama_member'];?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+
+                
+                <div class="form-group">
+                  <input type="text" style="display: none;" id="showpembeli" name="nama_pembeli" value="<?php echo $row['nama_pembeli'] ?>" class="form-control">
+                </div>
+                
+                <div class="form-group">
                   <label>Kasir</label>
                   <?php
                   $sql= " SELECT * FROM kasir";
@@ -44,17 +68,17 @@
                 </div>
 
                 <div class="form-group">
-                  <label>Member</label>
-                  <?php
-                  $sql= " SELECT * FROM member";
-                  $query=mysqli_query($connection,$sql);
-                  $a=". ";
-                  ?>
-                  <select name="id_member" class="form-control">
-                    <?php while($row2=mysqli_fetch_array($query)){?>
-                    <option value="<?php echo $row2['id_member']?>" <?php if($row2['id_member'] == $row['id_member']) { echo 'selected';}?>><?php echo $row2['id_member'].$a.$row2['nama_member'];?></option>
-                    <?php } ?>
-                  </select>
+                  <label>PPN%</label>
+                  <input type="text" name="ppn" value="<?php echo $row['ppn'] ?>" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <label>Diskon%</label>
+                  <input type="text" name="diskon" value="<?php echo $row['diskon'] ?>" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                  <input type="hidden" id="total_bayar" name="total_bayar" value="<?php echo $row['total_bayar'] ?>" class="form-control">
                 </div>
 
                 <div class="form-group">
@@ -72,24 +96,10 @@
                 </div>
 
                 <div class="form-group">
-                  <label>Nama Pembeli</label>
-                  <input type="text" name="nama_pembeli" value="<?php echo $row['nama_pembeli'] ?>" class="form-control">
-                </div>
-
-                <div class="form-group">
-                  <label>PPN%</label>
-                  <input type="text" name="ppn" value="<?php echo $row['ppn'] ?>" class="form-control">
-                </div>
-
-                <div class="form-group">
-                  <label>Diskon%</label>
-                  <input type="text" name="diskon" value="<?php echo $row['diskon'] ?>" class="form-control">
-                </div>
-                
-                <div class="form-group">
                   <input type="hidden" id="total_bayar" name="total_bayar" value="<?php echo $row['total_bayar'] ?>" class="form-control">
                 </div>
 
+                <button type="selesai" class="btn btn-primary" onclick="transaksi()">SELESAI</button>
                 <button type="submit" class="btn btn-success">UPDATE</button>
                 <button type="reset" class="btn btn-warning">RESET</button>
                 <a href="index.php?page=transaksi" class="btn btn-md btn-dark">BACK</a>

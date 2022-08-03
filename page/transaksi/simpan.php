@@ -25,25 +25,8 @@ $ppn                  = $_POST['ppn'];
 $diskon               = $_POST['diskon'];
 $total_bayar          = $total_harga + $ppn - $diskon;
 $harga_str            = preg_replace("/[^0-9]/","", $total_bayar);
-$persen              = 100;
+$status = $_POST['status'];
 
-$sql2=mysqli_query($connection, "SELECT harga_jual from barang where id_barang='$id_barang'");
-$sql1=mysqli_query($connection, "SELECT * from transaksi where id_transaksi='$id_transaksi'");
-
-$harga=mysqli_fetch_array($sql2);
-$transaksi=mysqli_fetch_array($sql1);
-
-$harga_jual=$harga['harga_jual'];
-$ppn_awal=$transaksi['ppn'];
-$diskon_awal=$transaksi['diskon'];
-
-$ppn_akhir=$ppn_awal / $persen;
-$diskon_akhir=$diskon_awal / $persen;
-$harga_awal=$harga_jual * $jumlah;
-$hitung_ppn=$harga_awal * $ppn_akhir;
-$harga_ppn=$harga_awal + $hitung_ppn;
-$hitung_diskon=$harga_ppn * $diskon_akhir;
-$total_harga=$harga_ppn - $hitung_diskon; 
  
 //query insert data ke dalam database
 $query = "INSERT INTO transaksi (id_transaksi, kode_inv, id_kasir, id_member, id_metode_pembayaran, nama_pembeli, ppn, diskon, total_bayar) 

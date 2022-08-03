@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Struk</title>
     <?php
-    $id_transaksi = $_GET['id'];
+    $id_transaksi = $_GET['id_transaksi'];
     $query = mysqli_query($connection, "SELECT * FROM transaksi
                         INNER JOIN transaksi_detail ON transaksi_detail.id_transaksi = transaksi.id_transaksi
                         INNER JOIN member on member.id_member = transaksi.id_member
