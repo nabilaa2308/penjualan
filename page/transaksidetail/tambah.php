@@ -30,11 +30,12 @@
                   <?php
                   $sql= " SELECT * FROM barang ";
                   $query=mysqli_query($connection,$sql);
-                  $a=". ";
+                  $a=" . ";
+                  $b=" . ";
                   ?>
                   <select name="id_barang" class="form-control">
                     <?php while($row2=mysqli_fetch_array($query)){?>
-                    <option value="<?php echo $row2['id_barang']?>"><?php echo $row2['id_barang'].$a.$row2['nama_barang'];?></option>
+                    <option value="<?php echo $row2['id_barang']?>"><?php echo $row2['id_barang'].$a.$row2['nama_barang'].$b.$row2['harga_jual'];?></option>
                     <?php } ?>
                   </select>
                 </div>
@@ -44,19 +45,6 @@
                   <input type="text" name="jumlah" placeholder="Masukkan Jumlah" class="form-control" required>
                 </div>
 
-                <div class="form-group">
-                  <label>Harga Jual</label>
-                  <?php
-                  $sql= "SELECT * FROM barang";
-                  $query=mysqli_query($connection,$sql);
-                  $a=". ";
-                  ?>
-                  <select id="harga_jual" name="id_barang" class="form-control">
-                    <?php while($row3=mysqli_fetch_array($query)){?>
-                    <option value="<?php echo $row3['id_barang']?>"><?php echo $row3['id_barang'].$a.$row3['harga_jual'];?></option>
-                    <?php } ?>
-                  </select>                
-                </div> 
 
                 <button type="submit" class="btn btn-success">SIMPAN</button>
                 <button type="reset" class="btn btn-warning">RESET</button>

@@ -44,38 +44,25 @@
                   <?php
                   $sql= " SELECT * FROM barang";
                   $query=mysqli_query($connection,$sql);
-                  $a=". ";
+                  $a=" . ";
+                  $b=" . ";
                   ?>
                   <select name="id_barang" class="form-control">
                     <?php while($row2=mysqli_fetch_array($query)){?>
-                    <option value="<?php echo $row2['id_barang']?>" <?php if($row2['id_barang'] == $row['id_barang']) { echo 'selected';}?>><?php echo $row2['id_barang'].$a.$row2['nama_barang'];?></option>
+                    <option value="<?php echo $row2['id_barang']?>" <?php if($row2['id_barang'] == $row['id_barang']) { echo 'selected';}?>><?php echo $row2['id_barang'].$a.$row2['nama_barang'].$b.$row2['harga_jual'];?></option>
                     <?php } ?>
                   </select>
                 </div>
                 
                 <div class="form-group">
                   <label>Jumlah</label>
-                  <input type="text" name="jumlah" value="<?php echo $row['jumlah'] ?>" placeholder="Masukkan Jumlah" class="form-control">
-                </div>
-
-                <div class="form-group">
-                  <label>Harga Jual</label>
-                  <?php
-                  $sql= "SELECT * FROM barang";
-                  $query=mysqli_query($connection,$sql);
-                  $a=". ";
-                  ?>
-                  <select name="id_barang" class="form-control">
-                    <?php while($row2=mysqli_fetch_array($query)){?>
-                    <option value="<?php echo $row2['id_barang']?>" <?php if($row2['id_barang'] == $row['id_barang']) { echo 'selected';}?>><?php echo $row2['id_barang'].$a.$row2['harga_jual'];?></option>
-                    <?php } ?>
-                  </select>
+                  <input type="text" name="jumlah" value="<?php echo $row['jumlah']?>" placeholder="Masukkan Jumlah" class="form-control">
                 </div>
 
          
                 <button type="submit" class="btn btn-success">UPDATE</button>
                 <button type="reset" class="btn btn-warning">RESET</button>
-                <a href="index.php?page=transaksidetail&id=<?=['id_transaksi_detail'] ?>" class="btn btn-md btn-dark">BACK</a>
+                <a href="index.php?page=transaksidetail&id=<?=['id_transaksi'] ?>" class="btn btn-md btn-dark">BACK</a>
 
               </form>
             </div>
