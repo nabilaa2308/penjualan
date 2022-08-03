@@ -1,6 +1,5 @@
 <?php
 
-$id_transaksi=$_GET['id_transaksi'];
 //get data dari form
 $id_transaksi_detail = $_POST['id_transaksi_detail'];
 $id_transaksi        = $_POST['id_transaksi'];
@@ -17,7 +16,7 @@ $query = "UPDATE transaksi_detail SET id_transaksi ='$id_transaksi', id_barang =
 //kondisi pengecekan apakah data berhasil diupdate atau tidak
 if($connection->query($query)) {
     //redirect ke halaman datatransaksidetail.php 
-    header("location: index.php?page=transaksidetail&id=$id_transaksi");
+    header("location: index.php?page=transaksidetail&id_transaksi=$id_transaksi");
 } else {
     //pesan error gagal update data
     echo "Data Gagal Diupate!";

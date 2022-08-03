@@ -62,7 +62,3 @@
     window.print();
 }
 </script>
-<script>
-    var transaksi = transaksi();
-transaksi.SetVar("Selesai","Selesai");
-</script>

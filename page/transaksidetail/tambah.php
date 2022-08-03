@@ -1,4 +1,7 @@
+<?php
+$id_transaksi= $_GET['id'];
 
+?>
     <div class="container" style="margin-top: 80px">
       <div class="row">
         <div class="col-md-8 offset-md-2">
@@ -7,20 +10,19 @@
               TAMBAH TRANSAKSI DETAIL
             </div>
             <div class="card-body">
-              <form action="index.php?page=transaksidetail&act=simpan&id=<?=$id_transaksi=$_GET['id'];?>" method="POST">
+              <form action="index.php?page=transaksidetail&act=simpan&id=<?php echo $id_transaksi?>" method="POST">
 
               <div class="form-group">
                   <input type="hidden" name="id_transaksi_detail" class="form-control">
                 </div>
-
-
+                
                 <div class="form-group">
                   <label>Kode INV</label>
                   <?php
-                   $id_transaksi= $_GET['id'];
                    $sql= "SELECT * FROM transaksi WHERE id_transaksi=$id_transaksi";
                    $query=mysqli_query($connection,$sql);
                    while($data_transaksi=mysqli_fetch_array($query)){
+                    $id_transaksi = $data_transaksi['id_transaksi'];
                    $kode_inv = $data_transaksi['kode_inv'];}?>
                    <input type="text" name="id_transaksi" class="form-control" value="<?=$id_transaksi?> . <?=$kode_inv?>" readonly>
                 </div>

@@ -1,8 +1,8 @@
 <?php 
   
-  $id = $_GET['id'];
+  $id = $_GET['id_transaksi'];
   
-  $query = "SELECT * FROM transaksi WHERE id_transaksi =$id";
+  $query = "SELECT * FROM transaksi WHERE id_transaksi ='$id'";
 
   $result = mysqli_query($connection, $query);
 
@@ -99,7 +99,12 @@
                   <input type="hidden" id="total_bayar" name="total_bayar" value="<?php echo $row['total_bayar'] ?>" class="form-control">
                 </div>
 
-                <button type="selesai" class="btn btn-primary" onclick="transaksi()">SELESAI</button>
+                <div class="form-group">
+                  <label>Status : </label>
+                <input type="checkbox" id="status" name="Selesai" value="Selesai">
+                <label for="status">Selesai</label>
+                </div>
+
                 <button type="submit" class="btn btn-success">UPDATE</button>
                 <button type="reset" class="btn btn-warning">RESET</button>
                 <a href="index.php?page=transaksi" class="btn btn-md btn-dark">BACK</a>

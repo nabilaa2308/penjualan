@@ -17,7 +17,8 @@
               EDIT TRANSAKSI DETAIL
             </div>
             <div class="card-body">
-              <form action="index.php?page=transaksidetail&act=update&id=<?=$_GET['id']?>" method="POST">
+              <?php $id_transaksi = $_GET['id_transaksi'] ?>
+              <form action="index.php?page=transaksidetail&act=update&id=<?php echo $id_transaksi?>" method="POST">
 
               <div class="form-group">
                   <input type="hidden" name="id_transaksi_detail" value="<?php echo $row['id_transaksi_detail'] ?>" class="form-control">
@@ -59,10 +60,9 @@
                   <input type="text" name="jumlah" value="<?php echo $row['jumlah']?>" placeholder="Masukkan Jumlah" class="form-control">
                 </div>
 
-         
                 <button type="submit" class="btn btn-success">UPDATE</button>
                 <button type="reset" class="btn btn-warning">RESET</button>
-                <a href="index.php?page=transaksidetail&id=<?=['id_transaksi'] ?>" class="btn btn-md btn-dark">BACK</a>
+                <a href="index.php?page=transaksidetail&id_transaksi=<?=$id_transaksi?>" class="btn btn-md btn-dark">BACK</a>
 
               </form>
             </div>

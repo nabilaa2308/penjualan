@@ -1,4 +1,7 @@
+<?php
+$id_transaksi = $_GET['id_transaksi'];
 
+?>
 
     <div class="container" style="margin-top: 80px">
       <div class="row">
@@ -8,7 +11,7 @@
               DATA TRANSAKSI DETAIL
             </div>
             <div class="card-body">
-              <a href="index.php?page=transaksidetail&act=tambah&id=<?=$_GET['id']?>" class="btn btn-md btn-success" style="margin-bottom: 10px">TAMBAH DATA</a>
+              <a href="index.php?page=transaksidetail&act=tambah&id=<?php echo $id_transaksi?>" class="btn btn-md btn-success" style="margin-bottom: 10px">TAMBAH DATA</a>
               <table class="table table-bordered" id="myTable">
                 <thead>
                   <tr>
@@ -23,7 +26,6 @@
                 </thead>
                 <tbody>
                   <?php 
-                      $id_transaksi = $_GET ['id'];
                       $no = 1;
                       $query = mysqli_query($connection,"SELECT * FROM transaksi_detail 
                       INNER JOIN transaksi ON transaksi.id_transaksi=transaksi_detail.id_transaksi 
@@ -42,8 +44,8 @@
                       <td><?php echo rupiah3($row['harga_jual']) ?></td>
                       <td><?php echo rupiah3($row['total_harga'])  ?></td>
                       <td class="text-center">
-                        <a href="index.php?page=transaksidetail&act=edit&id=<?php echo $row['id_transaksi_detail']?>" class="btn btn-sm btn-primary">EDIT</a>
-                        <a href="index.php?page=transaksidetail&act=hapus&id=<?php echo $row['id_transaksi_detail']?>&id_transaksi=<?=$_GET['id']?>" class="btn btn-sm btn-danger">HAPUS</a>
+                        <a href="index.php?page=transaksidetail&act=edit&id=<?php echo $row['id_transaksi_detail']?>&id_transaksi=<?=$id_transaksi?>" class="btn btn-sm btn-primary">EDIT</a>
+                        <a href="index.php?page=transaksidetail&act=hapus&id=<?php echo $row['id_transaksi_detail']?>&id_transaksi=<?=$id_transaksi?>" class="btn btn-sm btn-danger">HAPUS</a>
                       </td>
                   </tr>
 
