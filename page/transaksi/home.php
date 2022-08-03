@@ -66,10 +66,10 @@
                       <td><?php echo $result1 ?></td>
                       <td><?php echo $row['status'] ?></td>                
                       <td class="text-center">
-                        <?php if ($row['status'] === "Belum Selesai"){ echo '<a href="index.php?page=transaksi&act=edit&id_transaksi='.$id_transaksi.'" class="btn btn-sm btn-primary">EDIT</a>
+                        <?php if ($row['status'] === "proses"){ echo '<a href="index.php?page=transaksi&act=edit&id_transaksi='.$id_transaksi.'" class="btn btn-sm btn-primary">EDIT</a>
                         <a href="index.php?page=transaksi&act=hapus&id_transaksi='.$id_transaksi.'" class="btn btn-sm btn-danger">HAPUS</a>
                         <a href="index.php?page=transaksidetail&id_transaksi='.$id_transaksi.'" class="btn btn-sm btn-info">DETAIL</a>';}                     
-                        else if ($row['status'] === "Selesai"){ echo '<a href="index.php?page=struk&id_transaksi='.$id_transaksi.'" class="btn btn-sm btn-dark">STRUK</a>';}?>
+                        else if ($row['status'] === "selesai"){ echo '<a href="index.php?page=struk&id_transaksi='.$id_transaksi.'" class="btn btn-sm btn-dark">STRUK</a>';}?>
                       </td>
                   </tr>
 

@@ -1,0 +1,15 @@
+li:hover {
+    background-color: #1F768A;
+    color:white;
+}
+li:active {
+    background-color: #1F768A;
+    color:white;
+}
+nav{
+    background-color:yellow;
+    color:black;
+}
+.font{
+    color: white;
+}

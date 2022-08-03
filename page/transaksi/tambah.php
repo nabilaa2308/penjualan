@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="form-group">
-                  <input type="hidden" name="status" value="Belum Selesai" class="form-control">
+                  <input type="hidden" name="status" value="proses" class="form-control">
                 </div>
                 
                 <button type="submit" class="btn btn-success">SIMPAN</button>

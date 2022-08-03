@@ -101,8 +101,10 @@
 
                 <div class="form-group">
                   <label>Status : </label>
-                <input type="checkbox" id="status" name="Selesai" value="Selesai">
-                <label for="status">Selesai</label>
+                  <input type="checkbox" id="status" name="proses" value="proses">
+                  <label for="status" class="form-control">Proses</label>
+                <input type="checkbox" id="status" name="selesai" value="selesai">
+                <label for="status" class="form-control">Selesai</label>
                 </div>
 
                 <button type="submit" class="btn btn-success">UPDATE</button>
