@@ -52,6 +52,8 @@
 <script src="assets/js/jquery-3.4.1.slim.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/jspdf.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable();

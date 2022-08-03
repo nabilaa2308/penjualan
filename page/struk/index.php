@@ -72,7 +72,7 @@
     <div id="editor"></div>
 <center>
   <p>
-    <button id="generatePDF">generate PDF</button>
+    <button id="generatePDF" onclick="window.print();">generate PDF</button>
   </p>
  Ref:<a href="https://phpcoder.tech">phpcoder.tech</a>
 </center>
