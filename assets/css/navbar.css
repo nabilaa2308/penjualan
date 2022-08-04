@@ -1,10 +1,20 @@
-nav link {
-    background-color: black;
+header{
+    background: #feb907;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    text-align: center;
+    padding: 2px;
+    display: flex;
 }
-nav{
-    background-color:whitesmoke;
-    color:black;
+a{
+    text-decoration: none;
+    color: #fff;
+    margin: auto;
 }
-.font{
-    color: white;
+.active{
+    justify-items: center;
+    color: black;
+    font-display: center;
+    text-align: center;
 }

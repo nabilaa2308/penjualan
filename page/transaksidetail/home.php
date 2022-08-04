@@ -40,7 +40,7 @@ $id_transaksi = $_GET['id_transaksi'];
                       <td><?php echo $no++ ?></td>
                       <td><?php echo $row['kode_inv'] ?></td>
                       <td><?php echo $row['nama_barang']?></td>
-                      <td><?php echo $row['jumlah'] ?></td>
+                      <td><?php echo $row['jumlah']?></td>
                       <td><?php echo rupiah3($row['harga_jual']) ?></td>
                       <td><?php echo rupiah3($row['total_harga'])  ?></td>
                       <td class="text-center">

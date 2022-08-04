@@ -101,9 +101,9 @@
 
                 <div class="form-group">
                   <label>Status : </label>
-                  <input type="checkbox" id="status" name="proses" value="proses">
+                  <input type="radio" id="proses" name="status" value="<?php echo $row['status'] ?>" >
                   <label for="status">Proses</label>
-                <input type="checkbox" id="status" name="selesai" value="selesai">
+                <input type="radio" id="status" name="status" value="selesai">
                 <label for="status">Selesai</label>
                 </div>
 

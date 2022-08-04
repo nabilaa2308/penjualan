@@ -19,6 +19,9 @@
         case 'hapus':
             include 'hapus.php';
             break;
+        case 'hapus':
+            include 'jumlah.php';
+            break;
         default:
             include 'home.php';
             break;

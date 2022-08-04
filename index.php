@@ -2,6 +2,7 @@
 include 'database/koneksi.php';
 include 'library/librupiah.php';
 include 'library/romawi.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,6 +17,7 @@ include 'library/romawi.php';
 </head>
 
 <body>
+
     <?php
     include 'page/layout/header.php';
     ?>
@@ -58,9 +60,6 @@ include 'library/romawi.php';
         case 'struk':
             include 'page/struk/index.php';
             break;
-            case 'struk':
-                include 'page/struk/struk.php';
-                break;
         default:
             include 'page/home/index.php';
             break;

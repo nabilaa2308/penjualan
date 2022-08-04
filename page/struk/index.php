@@ -1,6 +1,4 @@
-<?php
- include('page/layout/js.php');
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/jspdf.min.js"></script>
+    <style>
+      #htmlContent{
+    text-align: center;
+  }  
+    </style>
     <title>Struk</title>
+    <div id="htmlContent"></div>
     <?php
     $id_transaksi = $_GET['id_transaksi'];
     $query = mysqli_query($connection, "SELECT * FROM transaksi
@@ -74,7 +78,6 @@
   <p>
     <button id="generatePDF" onclick="window.print();">generate PDF</button>
   </p>
- Ref:<a href="https://phpcoder.tech">phpcoder.tech</a>
 </center>
   </body>
 </html>
