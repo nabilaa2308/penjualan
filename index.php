@@ -1,7 +1,13 @@
 <?php
+session_start();
+if (isset($_SESSION['login'])) {
+    header("Location: ../index.php");
+    exit;
+}
 include 'database/koneksi.php';
 include 'library/librupiah.php';
 include 'library/romawi.php';
+
 
 ?>
 <!DOCTYPE html>
@@ -13,6 +19,7 @@ include 'library/romawi.php';
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
     <title>Penjualan</title>
 </head>
 

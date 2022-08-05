@@ -51,3 +51,8 @@
           </div>
       </div>
     </div>
+  </div>
+  </div>
+    <script src="assets/js/jquery-3.4.1.slim.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>

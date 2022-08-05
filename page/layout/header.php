@@ -12,15 +12,16 @@
     <div><a class="navbar-brand" href="index.php"><img src="assets/image/penjualan.png" width="100px" ; height="60px"></a>
   </div>
   <div>
-    <a class="active" aria-current="page" href="index.php?page=barang">BARANG</a>
-    <a class="active" aria-current="page" href="index.php?page=kategori">KATEGORI</a>
-    <a class="active" aria-current="page" href="index.php?page=supplier">SUPPLIER</a>
-    <a class="active" aria-current="page" href="index.php?page=metodepembayaran">METODE PEMBAYARAN</a>
-    <a class="active" aria-current="page" href="index.php?page=perusahaan">PERUSAHAAN</a>
-    <a class="active" aria-current="page" href="index.php?page=cabang">CABANG</a>
-    <a class="active" aria-current="page" href="index.php?page=kasir">KASIR</a>
-    <a class="active" aria-current="page" href="index.php?page=member">MEMBER</a>
-    <a class="active" aria-current="page" href="index.php?page=transaksi">TRANSAKSI</a>
+    <a class="active" aria-current="page" href="index.php?page=barang">BARANG</a>&nbsp;
+    <a class="active" aria-current="page" href="index.php?page=kategori">KATEGORI</a>&nbsp;
+    <a class="active" aria-current="page" href="index.php?page=supplier">SUPPLIER</a>&nbsp;
+    <a class="active" aria-current="page" href="index.php?page=metodepembayaran">METODE PEMBAYARAN</a>&nbsp;
+    <a class="active" aria-current="page" href="index.php?page=perusahaan">PERUSAHAAN</a>&nbsp;
+    <a class="active" aria-current="page" href="index.php?page=cabang">CABANG</a>&nbsp;
+    <a class="active" aria-current="page" href="index.php?page=kasir">KASIR</a>&nbsp;
+    <a class="active" aria-current="page" href="index.php?page=member">MEMBER</a>&nbsp;
+    <a class="active" aria-current="page" href="index.php?page=transaksi">TRANSAKSI</a>&nbsp;
+    <a class="active" aria-current="page" href="login/index.php">LOGOUT</a>&nbsp;
   </div>
   </header>
   

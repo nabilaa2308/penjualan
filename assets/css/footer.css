@@ -1,0 +1,23 @@
+/*footer*/
+footer{
+    align-items: center;
+    background-color: maroon;
+    color: white;
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+    justify-content: space-around;
+    padding: 4px;
+    align-items: center;
+}
+.f-nav{
+    display: flex;
+    flex-direction: column;
+}
+a{
+    color: white;
+    margin: 5px;
+    text-decoration: none;
+}
+body{
+    position: relative;
+}

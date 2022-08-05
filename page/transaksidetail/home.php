@@ -40,7 +40,10 @@ $id_transaksi = $_GET['id_transaksi'];
                       <td><?php echo $no++ ?></td>
                       <td><?php echo $row['kode_inv'] ?></td>
                       <td><?php echo $row['nama_barang']?></td>
-                      <td><?php echo $row['jumlah']?></td>
+                      <td><form method="POST" action="index.php?page=transaksidetail&act=jumlah&id_transaksi_detail=<?php echo $id_transaksi?>&id_barang=<?php echo $row['id_barang']?>&id_transaksi=<?=$id_transaksi?>">
+                    <input type="number" name="jumlah" style="border-style: none;outline:none;width: 50px;height: 20px;" value="<?=$row['jumlah']?>">
+                    <button type="submit" class="btn btn-primary">UBAH</button>
+                    </form> </td>
                       <td><?php echo rupiah3($row['harga_jual']) ?></td>
                       <td><?php echo rupiah3($row['total_harga'])  ?></td>
                       <td class="text-center">
@@ -56,4 +59,5 @@ $id_transaksi = $_GET['id_transaksi'];
             </div>
           </div>
       </div>
+    </div>
     </div>

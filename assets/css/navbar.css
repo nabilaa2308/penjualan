@@ -1,5 +1,5 @@
 header{
-    background: #feb907;
+    background: maroon;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     align-items: center;
@@ -14,7 +14,7 @@ a{
 }
 .active{
     justify-items: center;
-    color: black;
+    color: #fff;
     font-display: center;
     text-align: center;
 }

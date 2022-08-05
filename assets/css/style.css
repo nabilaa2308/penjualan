@@ -23,7 +23,7 @@ h1 {
 }
 
 a {
-  color: #752BEA;
+  color: maroon;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -63,7 +63,7 @@ a {
     height: 40px;
     padding: 5px 0;
     border: none;
-    background-color:#752BEA;
+    background-color:maroon;
     font-size: 18px;
     color: #fafafa;
     border-radius: 20px;
