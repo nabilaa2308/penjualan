@@ -19,7 +19,7 @@
         case 'hapus':
             include 'hapus.php';
             break;
-        case 'hapus':
+        case 'jumlah':
             include 'jumlah.php';
             break;
         default:

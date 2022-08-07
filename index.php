@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (isset($_SESSION['login'])) {
-    header("Location: ../index.php");
+if( !isset($_SESSION['login'])) {
+    header("Location: login.php");
     exit;
 }
 include 'database/koneksi.php';
@@ -18,8 +18,8 @@ include 'library/romawi.php';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="assets/css/navbar.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/navbar.css" id="header">
+    <link rel="stylesheet" href="assets/css/footer.css" id="footer">
     <title>Penjualan</title>
 </head>
 

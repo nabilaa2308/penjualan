@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2022 at 04:15 AM
+-- Generation Time: Aug 07, 2022 at 04:06 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -43,12 +43,12 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `id_kategori`, `id_supplier`, `stok`, `harga_modal`, `harga_jual`, `tanggal_masuk`) VALUES
-(14, 'Kipas Angin', 3, 1, 975, 120000, 140000, '2022-07-21'),
+(14, 'Kipas Angin', 3, 1, 968, 120000, 140000, '2022-07-21'),
 (15, 'AK-47', 7, 1, 19, 100000000, 120000000, '2022-07-22'),
-(16, 'Roti', 1, 1, 955, 2000, 3000, '2022-07-24'),
-(17, 'Coca Cola', 2, 1, 189, 3000, 5000, '2022-07-24'),
+(16, 'Roti', 1, 1, 951, 2000, 3000, '2022-07-24'),
+(17, 'Coca Cola', 2, 1, 185, 3000, 5000, '2022-07-24'),
 (25, 'Kerupuk', 1, 1, 19, 1000, 2000, '2022-07-24'),
-(31, 'Laptop', 3, 3, 22, 5000000, 10000000, '2022-07-25'),
+(31, 'Laptop', 3, 3, 20, 5000000, 10000000, '2022-07-25'),
 (36, 'Pisau', 5, 1, 35, 3000, 5000, '2022-07-25'),
 (39, 'Semen', 8, 3, 29, 60000, 65000, '2022-07-26'),
 (40, 'Batu Bata', 8, 3, 1000, 500, 1000, '2022-07-27');
@@ -142,7 +142,8 @@ CREATE TABLE `member` (
 INSERT INTO `member` (`id_member`, `nama_member`, `nomor_telp`, `alamat`, `jenis_kelamin`) VALUES
 (1, 'nana', '0832537267324', 'jl.bawahtanah', 'Perempuan'),
 (2, 'rudi', '0832873483746', 'jl.harapan', 'Laki-Laki'),
-(3, 'budi', '0823123423432', 'jl.bagus', 'Laki-Laki');
+(3, 'budi', '0823123423432', 'jl.bagus', 'Laki-Laki'),
+(6, 'Non Member', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -218,7 +219,7 @@ INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `nomor_telp`, `alamat`, 
 
 CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
-  `kode_inv` varchar(11) NOT NULL,
+  `kode_inv` varchar(30) NOT NULL,
   `id_kasir` int(11) NOT NULL,
   `id_member` int(11) NOT NULL,
   `id_metode_pembayaran` int(11) NOT NULL,
@@ -226,19 +227,17 @@ CREATE TABLE `transaksi` (
   `nama_pembeli` varchar(100) NOT NULL,
   `ppn` varchar(10) NOT NULL,
   `diskon` varchar(10) NOT NULL,
-  `total_bayar` varchar(20) NOT NULL
+  `total_bayar` varchar(20) NOT NULL,
+  `status` enum('selesai','proses','.') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`id_transaksi`, `kode_inv`, `id_kasir`, `id_member`, `id_metode_pembayaran`, `waktu_transaksi`, `nama_pembeli`, `ppn`, `diskon`, `total_bayar`) VALUES
-(5, '1212', 1, 1, 2, '2022-07-26 07:13:26', 'rara', '12', '4', '560000'),
-(9, '6767', 1, 1, 2, '2022-07-26 07:20:51', '', '5', '3', '25000'),
-(10, '9090', 1, 2, 3, '2022-07-22 07:16:22', '', '5', '2', '93000'),
-(14, '14/1/4/1/26', 1, 1, 2, '2022-07-27 03:18:19', '', '5', '4', '60000'),
-(16, '16/1/2/1/26', 1, 1, 2, '2022-07-26 07:56:44', '', '10', '8', '900000');
+INSERT INTO `transaksi` (`id_transaksi`, `kode_inv`, `id_kasir`, `id_member`, `id_metode_pembayaran`, `waktu_transaksi`, `nama_pembeli`, `ppn`, `diskon`, `total_bayar`, `status`) VALUES
+(17, '18/2/2/6/VII/VIII/XXII', 2, 6, 2, '2022-08-07 06:14:05', 'Jane', '2', '0', '571200', 'selesai'),
+(20, '20/1/4/6/VII/VIII/XXII', 1, 6, 4, '2022-08-07 12:21:07', 'Mark', '2', '0', '20837580', 'proses');
 
 -- --------------------------------------------------------
 
@@ -262,7 +261,11 @@ CREATE TABLE `transaksi_detail` (
 INSERT INTO `transaksi_detail` (`id_transaksi_detail`, `id_transaksi`, `id_barang`, `jumlah`, `harga_jual`, `total_harga`) VALUES
 (28, 16, 14, '2', '140000', '280000'),
 (31, 14, 16, '2', '3000', '6000'),
-(36, 14, 15, '2', '120000000', '240000000');
+(36, 14, 15, '2', '120000000', '240000000'),
+(38, 17, 14, '4', '140000', '560000'),
+(39, 20, 16, '3', '3000', '9000'),
+(40, 20, 31, '2', '10000000', '20000000'),
+(41, 20, 14, '3', '140000', '420000');
 
 --
 -- Triggers `transaksi_detail`
@@ -277,6 +280,25 @@ WHERE id_barang = NEW.id_barang;
 END
 $$
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
+(1, 'admin', '$2y$10$4BoY9HFXYLSe9Jqt/B20beq.qJMXwZx3bkCsEIWK.Vzhtyw8sA.r.');
 
 --
 -- Indexes for dumped tables
@@ -348,6 +370,12 @@ ALTER TABLE `transaksi_detail`
   ADD KEY `id_transaksi` (`id_transaksi`,`id_barang`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -379,7 +407,7 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_member` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `metode_pembayaran`
@@ -403,13 +431,19 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
-  MODIFY `id_transaksi_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_transaksi_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

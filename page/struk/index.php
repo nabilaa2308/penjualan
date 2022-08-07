@@ -1,19 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/jspdf.min.js"></script>
-    <style>
-      #htmlContent{
-    text-align: center;
-  }  
-    </style>
     <title>Struk</title>
-    <div id="htmlContent"></div>
+  <style>
+    @media print{
+      @page {
+        size: auto;
+        margin: 0mm;
+      }
+      #buttonprint, #header, #footer {
+        display: none;
+      }
+    }
+  </style>
     <?php
     $id_transaksi = $_GET['id_transaksi'];
     $query = mysqli_query($connection, "SELECT * FROM transaksi
@@ -73,11 +75,8 @@
         Email : <?php echo $row['email']?>
       </div>
     </div>
-    <div id="editor"></div>
 <center>
-  <p>
-    <button id="generatePDF" onclick="window.print();">generate PDF</button>
-  </p>
+<button type="submit" name="submit" id="buttonprint" class="btn btn-primary" onclick="window.print();">Print</button>
 </center>
   </body>
 </html>

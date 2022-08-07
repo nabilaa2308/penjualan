@@ -8,6 +8,7 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="header"></div>
   <header>
     <div><a class="navbar-brand" href="index.php"><img src="assets/image/penjualan.png" width="100px" ; height="60px"></a>
   </div>
@@ -21,7 +22,7 @@
     <a class="active" aria-current="page" href="index.php?page=kasir">KASIR</a>&nbsp;
     <a class="active" aria-current="page" href="index.php?page=member">MEMBER</a>&nbsp;
     <a class="active" aria-current="page" href="index.php?page=transaksi">TRANSAKSI</a>&nbsp;
-    <a class="active" aria-current="page" href="login/index.php">LOGOUT</a>&nbsp;
+    <a class="active" aria-current="page" href="logout.php">LOGOUT</a>&nbsp;
   </div>
   </header>
   

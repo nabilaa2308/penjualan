@@ -1,17 +1,17 @@
 <?php 
  
-include '../database/koneksi.php';
- 
-error_reporting(0);
- 
-session_start();
+include 'database/koneksi.php'; 
  
 if (isset($_POST['register'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $cpassword = $_POST['cpassword'];
- 
-    if ($password == $cpassword) {
+
+    $username = strtolower(stripslashes(($_POST['username'])));
+    $password = mysqli_real_escape_string($connection, $_POST['password']);
+    $cpassword = mysqli_real_escape_string($connection, $_POST['cpassword']);
+    //enkripsi password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    //cek konfirmasi password
+    if ( $password !== $cpassword ) {
         $sql = "SELECT * FROM user WHERE username='$username'";
         $result = mysqli_query($connection, $sql);
         if (!$result->num_rows > 0) {
@@ -43,27 +43,27 @@ if (isset($_POST['register'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
  
     <title>Register</title>
 </head>
 <body>
     <div class="container">
-        <form action="" method="POST" class="login-email">
+        <form action="" method="POST">
             <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
             <div class="input-group">
-                <input type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" required>
+                <input type="text" id="username" name="username" placeholder="Username" required>
             </div>
             <div class="input-group">
-                <input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
             </div>
             <div class="input-group">
-                <input type="password" placeholder="Confirm Password" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
+                <input type="password" placeholder="Confirm Password" name="cpassword" required>
             </div>
             <div class="input-group">
                 <button type="submit" name="register" class="btn">Register</button>
             </div>
-            <p class="login-register-text">Anda sudah punya akun? <a href="index.php">Login </a></p>
+            <p class="login-register-text">Anda sudah punya akun? <a href="login.php">Login </a></p>
         </form>
     </div>
 </body>
