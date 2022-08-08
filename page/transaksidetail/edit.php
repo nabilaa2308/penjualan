@@ -1,7 +1,7 @@
 <?php 
-  $id = $_GET['id'];
+  $id_transaksi = $_GET['id_transaksi'];
   
-  $query = "SELECT * FROM transaksi_detail WHERE id_transaksi_detail = $id";
+  $query = "SELECT * FROM transaksi_detail WHERE id_transaksi_detail = $id_transaksi";
 
   $result = mysqli_query($connection, $query);
 

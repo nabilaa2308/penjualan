@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Struk</title>
   <style>
-    @media print{
-      @page {
-        size: auto;
-        margin: 0mm;
+    @media print {
+      body * {
+        display: auto;
+        overflow: visible;
       }
-      #buttonprint, #header, #footer {
+      #content {
+        visibility: visible;
+      }
+      #buttonprint {
         display: none;
       }
     }
@@ -33,7 +36,7 @@
     ?>
 </head>
 <body>
-    <div class="card" style="width:40%;margin:auto;margin-top:30px;">
+    <div class="card" div="content" style="width:40%;margin:auto;margin-top:30px;">
       <div class="card-body" style="margin:auto;">
         <h5 class="card-title"><?php echo $row['nama_perusahaan']?> &nbsp;&nbsp; <img src="assets/image/penjualan.png" width="100px" height="60px"></h5>
         <p class="card-text"><?php echo $row['nama_cabang'] ?><br>
@@ -76,7 +79,7 @@
       </div>
     </div>
 <center>
-<button type="submit" name="submit" id="buttonprint" class="btn btn-primary" onclick="window.print();">Print</button>
+<div class="btn btn-primary" id="buttonprint" onclick="window.print();">Print</div>
 </center>
   </body>
 </html>

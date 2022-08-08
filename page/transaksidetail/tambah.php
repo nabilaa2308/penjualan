@@ -1,5 +1,5 @@
 <?php
-$id_transaksi= $_GET['id'];
+$id_transaksi= $_GET['id_transaksi'];
 
 ?>
     <div class="container" style="margin-top: 80px">
@@ -10,7 +10,7 @@ $id_transaksi= $_GET['id'];
               TAMBAH TRANSAKSI DETAIL
             </div>
             <div class="card-body">
-              <form action="index.php?page=transaksidetail&act=simpan&id=<?php echo $id_transaksi?>" method="POST">
+              <form action="index.php?page=transaksidetail&id=<?php echo $id_transaksi?>" method="POST">
 
               <div class="form-group">
                   <input type="hidden" name="id_transaksi_detail" class="form-control">
