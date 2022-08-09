@@ -76,10 +76,6 @@
                   <label>Diskon%</label>
                   <input type="text" name="diskon" value="<?php echo $row['diskon'] ?>" class="form-control">
                 </div>
-                
-                <div class="form-group">
-                  <input type="hidden" id="total_bayar" name="total_bayar" value="<?php echo $row['total_bayar'] ?>" class="form-control">
-                </div>
 
                 <div class="form-group">
                   <label>Metode Pembayaran</label>
