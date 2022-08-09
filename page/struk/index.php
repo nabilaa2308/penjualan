@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Struk</title>
   <style>
     @media print {
       body * {
-        display: auto;
-        overflow: visible;
+        visibility: hidden;
       }
-      #content {
+      #content, #content * {
         visibility: visible;
       }
       #buttonprint {
@@ -19,6 +13,11 @@
       }
     }
   </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struk</title>
     <?php
     $id_transaksi = $_GET['id_transaksi'];
     $query = mysqli_query($connection, "SELECT * FROM transaksi
@@ -36,7 +35,7 @@
     ?>
 </head>
 <body>
-    <div class="card" div="content" style="width:40%;margin:auto;margin-top:30px;">
+    <div class="card" id="content" style="width:40%;margin:auto;margin-top:30px;">
       <div class="card-body" style="margin:auto;">
         <h5 class="card-title"><?php echo $row['nama_perusahaan']?> &nbsp;&nbsp; <img src="assets/image/penjualan.png" width="100px" height="60px"></h5>
         <p class="card-text"><?php echo $row['nama_cabang'] ?><br>
